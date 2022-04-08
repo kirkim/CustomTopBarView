@@ -8,13 +8,16 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class TopBar: UICollectionView {
     private let disposeBag = DisposeBag()
     private let slots: [String]
+    private let startPage: Int
     
-    init(itemTitles: [String]) {
+    init(itemTitles: [String], startPage: Int) {
         self.slots = itemTitles
+        self.startPage = startPage
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
@@ -29,14 +32,9 @@ class TopBar: UICollectionView {
     }
     
     func bind(_ viewModel: TopBarViewModel) {
-        Observable<IndexPath>.just(IndexPath(row: 0, section: 0))
-            .bind(to: viewModel.slotChanged)
-            .disposed(by: disposeBag)
         Driver.just(self.slots)
-            .drive(self.rx.items) { cv, row, data in
-                let cell = cv.dequeueReusableCell(withReuseIdentifier: "TopBarCell", for: IndexPath(row: row, section: 0)) as! TopBarCell
+            .drive(self.rx.items(cellIdentifier: "TopBarCell", cellType: TopBarCell.self)) { row, data, cell in
                 cell.setData(title: data)
-                return cell
             }
             .disposed(by: disposeBag)
         
@@ -44,6 +42,7 @@ class TopBar: UICollectionView {
             .distinctUntilChanged()
             .bind(to: viewModel.slotChanged)
             .disposed(by: disposeBag)
+        
         viewModel.slotChanging
             .bind { [weak self] indexPath in
                 self?.visibleCells.forEach { cell in

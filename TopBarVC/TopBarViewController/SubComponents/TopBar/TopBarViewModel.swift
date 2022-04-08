@@ -17,7 +17,7 @@ struct TopBarViewModel {
     let slotChanged = PublishRelay<IndexPath>()
     
     //ViewModel -> View
-    let slotChanging = BehaviorRelay<IndexPath>(value: IndexPath(row: 0, section: 0))
+    let slotChanging = PublishRelay<IndexPath>() // 구독시점이 항상 datasources 세팅완료시점보다 빨라서 cell변경용이라면 Behavior을 쓸필요가 없다고 생각
 
     init() {
         scrolledPage

@@ -10,22 +10,26 @@ import SnapKit
 
 struct TabBarItem {
     let viewController: UIViewController
-    let title: String
+    let itemTitle: String
 }
 
 class TopBarMainViewController: UIViewController {
     private let subViewControllers: [UIViewController]
     private let layoutView: TopBarLayoutView
     private let topBar: TopBar
+    private var bottomBar: BottomBar?
     private let viewModel = TopBarMainViewModel()
     
-    init(tabBarItems: [TabBarItem]) {
-        let titles = tabBarItems.map { $0.title }
+    init(tabBarItems: [TabBarItem], startPage: Int = 0, bottomBar: BottomBar?) {
+        let titles = tabBarItems.map { $0.itemTitle }
         let viewControllers = tabBarItems.map { $0.viewController }
+        if ((bottomBar) != nil) {
+            self.bottomBar = bottomBar
+        }
         
         self.subViewControllers = viewControllers
-        self.layoutView = TopBarLayoutView(views: viewControllers.map { $0.view })
-        self.topBar = TopBar(itemTitles: titles)
+        self.layoutView = TopBarLayoutView(views: viewControllers.map { $0.view }, startPage: startPage)
+        self.topBar = TopBar(itemTitles: titles, startPage: startPage)
         super.init(nibName: nil, bundle: nil)
         attribute()
         layout()
@@ -74,6 +78,13 @@ class TopBarMainViewController: UIViewController {
             $0.top.equalTo(topBar.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalToSuperview()
         }
-
+        
+        if let bottomBar = bottomBar {
+            self.view.addSubview(bottomBar)
+            bottomBar.snp.makeConstraints {
+                $0.leading.trailing.bottom.equalToSuperview()
+                $0.height.equalTo(100)
+            }
+        }
     }
 }

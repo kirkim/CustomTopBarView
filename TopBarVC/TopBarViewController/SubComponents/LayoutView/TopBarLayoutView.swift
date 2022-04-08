@@ -11,11 +11,14 @@ import RxCocoa
 class TopBarLayoutView: UICollectionView  {
     private let disposeBag = DisposeBag()
     private let views: [UIView]
+    private let startPage: Int
     let nowPage = BehaviorSubject<Int>(value: 0)
     var nowPageFlag: Int = 0
+    var initFlag: Bool = false
     
-    init(views: [UIView]) {
+    init(views: [UIView], startPage: Int) {
         self.views = views
+        self.startPage = startPage
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
@@ -31,10 +34,13 @@ class TopBarLayoutView: UICollectionView  {
     
     func bind(_ viewModel: TopBarLayoutViewModel) {
         Driver.just(self.views)
-            .drive(self.rx.items) { cv, row, data in
-                let cell = cv.dequeueReusableCell(withReuseIdentifier: "TopBarLayoutViewCell", for: IndexPath(row: row, section: 0)) as! TopBarLayoutViewCell
+            .drive(self.rx.items(cellIdentifier: "TopBarLayoutViewCell", cellType: TopBarLayoutViewCell.self)) { row, data, cell in
                 cell.setData(view: data)
-                return cell
+                if (self.initFlag == false) {
+                    self.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
+                    self.initFlag = true
+                }
+                print("셀만드는 중")
             }
             .disposed(by: disposeBag)
         

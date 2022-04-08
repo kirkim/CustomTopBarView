@@ -8,21 +8,25 @@
 import UIKit
 
 class RootViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let vc = TopBarMainViewController(tabBarItems: [
-                TabBarItem(viewController: Test1(), title: "test11231231231"),
-                TabBarItem(viewController: Test2(), title: "test222"),
-                TabBarItem(viewController: Test3(), title: "tes"),
-                TabBarItem(viewController: Test1(), title: "test1"),
-                TabBarItem(viewController: Test2(), title: "test2"),
-                TabBarItem(viewController: Test3(), title: "test3")
-            ]
+        let vc = TopBarMainViewController(
+            tabBarItems: [
+                TabBarItem(viewController: Test1(), itemTitle: "test11231231231"),
+                TabBarItem(viewController: Test2(), itemTitle: "test222"),
+                TabBarItem(viewController: Test3(), itemTitle: "tes"),
+                TabBarItem(viewController: Test1(), itemTitle: "test1"),
+                TabBarItem(viewController: Test2(), itemTitle: "test2"),
+                TabBarItem(viewController: Test3(), itemTitle: "test3")
+            ],
+            startPage: 3
+            ,
+            bottomBar: BottomBar()
         )
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)

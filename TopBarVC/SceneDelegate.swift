@@ -8,15 +8,16 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
+    var windowWidth: CGFloat?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: windowScene)
+        self.windowWidth = self.window?.frame.width
+
         let vc = RootViewController()
         let nav = UINavigationController(rootViewController: vc)
-        self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
     }

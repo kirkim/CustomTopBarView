@@ -14,6 +14,8 @@
 		FE019C8A27FED0E30069C871 /* TopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8927FED0E30069C871 /* TopBarViewModel.swift */; };
 		FE019C8C27FED9330069C871 /* TopBarMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8B27FED9330069C871 /* TopBarMainViewModel.swift */; };
 		FE019C8E27FED99A0069C871 /* TopBarLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */; };
+		FE24A40628005EB4009EDC58 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40528005EB4009EDC58 /* BottomBar.swift */; };
+		FE24A40828006418009EDC58 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40728006418009EDC58 /* test.swift */; };
 		FE67224427FEBFDF00558B79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224327FEBFDF00558B79 /* AppDelegate.swift */; };
 		FE67224627FEBFDF00558B79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224527FEBFDF00558B79 /* SceneDelegate.swift */; };
 		FE67224827FEBFDF00558B79 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224727FEBFDF00558B79 /* RootViewController.swift */; };
@@ -27,12 +29,15 @@
 		FE67226C27FEBFF200558B79 /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226327FEBFF200558B79 /* Test2.swift */; };
 		FE67226D27FEBFF200558B79 /* Test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226427FEBFF200558B79 /* Test1.swift */; };
 		FE67226F27FEBFF200558B79 /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226627FEBFF200558B79 /* Test3.swift */; };
+		FE82B59E27FFC4BE00CA500E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = FE82B59D27FFC4BE00CA500E /* RxDataSources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FE019C8927FED0E30069C871 /* TopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarViewModel.swift; sourceTree = "<group>"; };
 		FE019C8B27FED9330069C871 /* TopBarMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarMainViewModel.swift; sourceTree = "<group>"; };
 		FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarLayoutViewModel.swift; sourceTree = "<group>"; };
+		FE24A40528005EB4009EDC58 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		FE24A40728006418009EDC58 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		FE67224027FEBFDF00558B79 /* TopBarVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopBarVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE67224327FEBFDF00558B79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE67224527FEBFDF00558B79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 				FE019C8527FEC32E0069C871 /* RxSwift in Frameworks */,
 				FE019C8827FEC33C0069C871 /* SnapKit in Frameworks */,
 				FE019C8327FEC32E0069C871 /* RxRelay in Frameworks */,
+				FE82B59E27FFC4BE00CA500E /* RxDataSources in Frameworks */,
 				FE019C8127FEC32E0069C871 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE24A40428004250009EDC58 /* BottomBar */ = {
+			isa = PBXGroup;
+			children = (
+				FE24A40528005EB4009EDC58 /* BottomBar.swift */,
+				FE24A40728006418009EDC58 /* test.swift */,
+			);
+			path = BottomBar;
+			sourceTree = "<group>";
+		};
 		FE67223727FEBFDF00558B79 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +128,7 @@
 			children = (
 				FE67225A27FEBFF200558B79 /* TopBar */,
 				FE67225E27FEBFF200558B79 /* LayoutView */,
+				FE24A40428004250009EDC58 /* BottomBar */,
 			);
 			path = SubComponents;
 			sourceTree = "<group>";
@@ -174,6 +190,7 @@
 				FE019C8227FEC32E0069C871 /* RxRelay */,
 				FE019C8427FEC32E0069C871 /* RxSwift */,
 				FE019C8727FEC33C0069C871 /* SnapKit */,
+				FE82B59D27FFC4BE00CA500E /* RxDataSources */,
 			);
 			productName = TopBarVC;
 			productReference = FE67224027FEBFDF00558B79 /* TopBarVC.app */;
@@ -206,6 +223,7 @@
 			packageReferences = (
 				FE019C7F27FEC32E0069C871 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				FE019C8627FEC33C0069C871 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FE82B59C27FFC4BE00CA500E /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = FE67224127FEBFDF00558B79 /* Products */;
 			projectDirPath = "";
@@ -238,12 +256,14 @@
 				FE019C8C27FED9330069C871 /* TopBarMainViewModel.swift in Sources */,
 				FE67224427FEBFDF00558B79 /* AppDelegate.swift in Sources */,
 				FE67226C27FEBFF200558B79 /* Test2.swift in Sources */,
+				FE24A40828006418009EDC58 /* test.swift in Sources */,
 				FE019C8A27FED0E30069C871 /* TopBarViewModel.swift in Sources */,
 				FE67226A27FEBFF200558B79 /* TopBarLayoutViewCell.swift in Sources */,
 				FE67224627FEBFDF00558B79 /* SceneDelegate.swift in Sources */,
 				FE67226727FEBFF200558B79 /* TopBar.swift in Sources */,
 				FE67226D27FEBFF200558B79 /* Test1.swift in Sources */,
 				FE67226F27FEBFF200558B79 /* Test3.swift in Sources */,
+				FE24A40628005EB4009EDC58 /* BottomBar.swift in Sources */,
 				FE67226827FEBFF200558B79 /* TopBarCell.swift in Sources */,
 				FE019C8E27FED99A0069C871 /* TopBarLayoutViewModel.swift in Sources */,
 				FE67226B27FEBFF200558B79 /* TopBarMainViewController.swift in Sources */,
@@ -474,6 +494,14 @@
 				kind = branch;
 			};
 		};
+		FE82B59C27FFC4BE00CA500E /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -496,6 +524,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE019C8627FEC33C0069C871 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FE82B59D27FFC4BE00CA500E /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE82B59C27FFC4BE00CA500E /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
