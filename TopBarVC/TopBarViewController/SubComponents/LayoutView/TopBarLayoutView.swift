@@ -10,22 +10,14 @@ import RxCocoa
 
 class TopBarLayoutView: UICollectionView  {
     private let disposeBag = DisposeBag()
-    private let views: [UIView]
-    private let startPage: Int
     let nowPage = BehaviorSubject<Int>(value: 0)
     var nowPageFlag: Int = 0
     var initFlag: Bool = false
     
-    init(views: [UIView], startPage: Int) {
-        self.views = views
-        self.startPage = startPage
+    init() {
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
-    }
-    
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        fatalError()
     }
     
     required init?(coder: NSCoder) {
@@ -33,14 +25,13 @@ class TopBarLayoutView: UICollectionView  {
     }
     
     func bind(_ viewModel: TopBarLayoutViewModel) {
-        Driver.just(self.views)
+        Driver.just(viewModel.views)
             .drive(self.rx.items(cellIdentifier: "TopBarLayoutViewCell", cellType: TopBarLayoutViewCell.self)) { row, data, cell in
                 cell.setData(view: data)
                 if (self.initFlag == false) {
-                    self.scrollToItem(at: NSIndexPath(item: 2, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
+                    self.scrollToItem(at: NSIndexPath(item: viewModel.startPage, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
                     self.initFlag = true
                 }
-                print("셀만드는 중")
             }
             .disposed(by: disposeBag)
         
@@ -56,6 +47,7 @@ class TopBarLayoutView: UICollectionView  {
             .disposed(by: disposeBag)
     }
     
+    //MARK: attribute(), layout() function
     private func attribute() {
         self.delegate = self
         self.isPagingEnabled = true

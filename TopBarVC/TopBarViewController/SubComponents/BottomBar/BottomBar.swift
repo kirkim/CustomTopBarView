@@ -7,9 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxCocoa
+import RxSwift
 
 // 너비가 항상 앱화면너비와 같도록 만들어야 정상적으로 UI가 만들어진다
 class BottomBar: UIView {
+    private let disposeBag = DisposeBag()
+    
     let button1 = UIButton()
     let button2 = UIButton()
     let button3 = UIButton()
@@ -28,6 +32,32 @@ class BottomBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bind(_ viewModel: BottomBarViewModel) {
+        button1.rx.tap
+            .map { .one }
+            .bind(to: viewModel.buttonTapped)
+            .disposed(by: disposeBag)
+        button2.rx.tap
+            .map { .two }
+            .bind(to: viewModel.buttonTapped)
+            .disposed(by: disposeBag)
+        
+        button3.rx.tap
+            .map { .three }
+            .bind(to: viewModel.buttonTapped)
+            .disposed(by: disposeBag)
+        
+        button4.rx.tap
+            .map { .four }
+            .bind(to: viewModel.buttonTapped)
+            .disposed(by: disposeBag)
+        
+        centerButton.rx.tap
+            .bind(to: viewModel.centerButtonTapped)
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: attribute(), layout() function
     private func attribute() {
         self.backgroundColor = .white
         self.button1.backgroundColor = .systemCyan

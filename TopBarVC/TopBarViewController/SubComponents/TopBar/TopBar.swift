@@ -12,19 +12,12 @@ import RxDataSources
 
 class TopBar: UICollectionView {
     private let disposeBag = DisposeBag()
-    private let slots: [String]
-    private let startPage: Int
+    private var cellData: [String]?
     
-    init(itemTitles: [String], startPage: Int) {
-        self.slots = itemTitles
-        self.startPage = startPage
+    init() {
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
-    }
-    
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        fatalError()
     }
     
     required init?(coder: NSCoder) {
@@ -32,9 +25,14 @@ class TopBar: UICollectionView {
     }
     
     func bind(_ viewModel: TopBarViewModel) {
-        Driver.just(self.slots)
+        self.cellData = viewModel.data
+        Driver.just(viewModel.data)
             .drive(self.rx.items(cellIdentifier: "TopBarCell", cellType: TopBarCell.self)) { row, data, cell in
                 cell.setData(title: data)
+                if (viewModel.isStartPage(row: row)) {
+                    cell.backgroundColor = .yellow
+                    self.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: true)
+                }
             }
             .disposed(by: disposeBag)
         
@@ -54,6 +52,7 @@ class TopBar: UICollectionView {
             .disposed(by: disposeBag)
     }
     
+    //MARK: attribute(), layout() function
     private func attribute() {
         self.delegate = self
         self.register(TopBarCell.self, forCellWithReuseIdentifier: "TopBarCell")
@@ -72,7 +71,7 @@ class TopBar: UICollectionView {
 //MARK: - TabBar: UICollectionViewDelegateFlowLayout
 extension TopBar: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let slot = self.slots[indexPath.row]
+        guard let slot = self.cellData?[indexPath.row] else { return CGSize.zero }
         let length = slot.count * 10
         return CGSize(width: length , height: Int(self.frame.height)-10)
     }

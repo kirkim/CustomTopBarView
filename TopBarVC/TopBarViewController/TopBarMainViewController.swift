@@ -6,38 +6,21 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 import SnapKit
 
-struct TabBarItem {
-    let viewController: UIViewController
-    let itemTitle: String
-}
-
 class TopBarMainViewController: UIViewController {
-    private let subViewControllers: [UIViewController]
-    private let layoutView: TopBarLayoutView
-    private let topBar: TopBar
-    private var bottomBar: BottomBar?
-    private let viewModel = TopBarMainViewModel()
+    private let disposeBag = DisposeBag()
     
-    init(tabBarItems: [TabBarItem], startPage: Int = 0, bottomBar: BottomBar?) {
-        let titles = tabBarItems.map { $0.itemTitle }
-        let viewControllers = tabBarItems.map { $0.viewController }
-        if ((bottomBar) != nil) {
-            self.bottomBar = bottomBar
-        }
-        
-        self.subViewControllers = viewControllers
-        self.layoutView = TopBarLayoutView(views: viewControllers.map { $0.view }, startPage: startPage)
-        self.topBar = TopBar(itemTitles: titles, startPage: startPage)
-        super.init(nibName: nil, bundle: nil)
-        attribute()
-        layout()
-        bind(viewModel)
-    }
+    private let layoutView = TopBarLayoutView()
+    private let topBar = TopBar()
+    private var bottomBar = BottomBar()
     
     override private init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        fatalError()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        attribute()
+        layout()
     }
     
     required init?(coder: NSCoder) {
@@ -45,21 +28,31 @@ class TopBarMainViewController: UIViewController {
     }
     
     func bind(_ viewModel: TopBarMainViewModel) {
-        let layoutViewModel = viewModel.layoutViewModel
-        let tabBarViewModel = viewModel.tabBarViewModel
-        self.layoutView.bind(layoutViewModel)
-        self.topBar.bind(tabBarViewModel)
-        
-    }
-    
-    private func attribute() {
-        self.subViewControllers.forEach {
+        viewModel.subViewControllers.forEach {
             self.addChild($0)
             $0.didMove(toParent: self)
         }
+ 
+        self.layoutView.bind(viewModel.layoutViewModel)
+        self.topBar.bind(viewModel.topBarViewModel)
+        self.bottomBar.bind(viewModel.bottomBarViewModel)
         
+        viewModel.presentVC
+            .emit { [weak self] vc in
+                self?.present(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.dismissVC
+            .emit { [weak self] _ in
+                self?.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: attribute(), layout() function
+    private func attribute() {
         self.view.backgroundColor = .systemMint
-        
         self.topBar.layer.cornerRadius = 10
     }
     
@@ -79,12 +72,10 @@ class TopBarMainViewController: UIViewController {
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
-        if let bottomBar = bottomBar {
-            self.view.addSubview(bottomBar)
-            bottomBar.snp.makeConstraints {
-                $0.leading.trailing.bottom.equalToSuperview()
-                $0.height.equalTo(100)
-            }
+        self.view.addSubview(bottomBar)
+        bottomBar.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(100)
         }
     }
 }

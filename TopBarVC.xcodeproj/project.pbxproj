@@ -16,6 +16,13 @@
 		FE019C8E27FED99A0069C871 /* TopBarLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */; };
 		FE24A40628005EB4009EDC58 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40528005EB4009EDC58 /* BottomBar.swift */; };
 		FE24A40828006418009EDC58 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40728006418009EDC58 /* test.swift */; };
+		FE24A40A280084C8009EDC58 /* BottomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A409280084C8009EDC58 /* BottomBarViewModel.swift */; };
+		FE24A40D28008ECF009EDC58 /* TopBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40C28008ECF009EDC58 /* TopBarItem.swift */; };
+		FE24A41028008EEA009EDC58 /* BottomBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40F28008EEA009EDC58 /* BottomBarItem.swift */; };
+		FE24A412280092EC009EDC58 /* ButtonVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A411280092EC009EDC58 /* ButtonVC1.swift */; };
+		FE24A414280092F3009EDC58 /* ButtonVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A413280092F3009EDC58 /* ButtonVC2.swift */; };
+		FE24A416280092F9009EDC58 /* ButtonVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A415280092F9009EDC58 /* ButtonVC3.swift */; };
+		FE24A418280092FD009EDC58 /* ButtonVC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A417280092FD009EDC58 /* ButtonVC4.swift */; };
 		FE67224427FEBFDF00558B79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224327FEBFDF00558B79 /* AppDelegate.swift */; };
 		FE67224627FEBFDF00558B79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224527FEBFDF00558B79 /* SceneDelegate.swift */; };
 		FE67224827FEBFDF00558B79 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224727FEBFDF00558B79 /* RootViewController.swift */; };
@@ -38,6 +45,13 @@
 		FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarLayoutViewModel.swift; sourceTree = "<group>"; };
 		FE24A40528005EB4009EDC58 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		FE24A40728006418009EDC58 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		FE24A409280084C8009EDC58 /* BottomBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewModel.swift; sourceTree = "<group>"; };
+		FE24A40C28008ECF009EDC58 /* TopBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarItem.swift; sourceTree = "<group>"; };
+		FE24A40F28008EEA009EDC58 /* BottomBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarItem.swift; sourceTree = "<group>"; };
+		FE24A411280092EC009EDC58 /* ButtonVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC1.swift; sourceTree = "<group>"; };
+		FE24A413280092F3009EDC58 /* ButtonVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC2.swift; sourceTree = "<group>"; };
+		FE24A415280092F9009EDC58 /* ButtonVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC3.swift; sourceTree = "<group>"; };
+		FE24A417280092FD009EDC58 /* ButtonVC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC4.swift; sourceTree = "<group>"; };
 		FE67224027FEBFDF00558B79 /* TopBarVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopBarVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE67224327FEBFDF00558B79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE67224527FEBFDF00558B79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,9 +89,19 @@
 			isa = PBXGroup;
 			children = (
 				FE24A40528005EB4009EDC58 /* BottomBar.swift */,
+				FE24A409280084C8009EDC58 /* BottomBarViewModel.swift */,
 				FE24A40728006418009EDC58 /* test.swift */,
 			);
 			path = BottomBar;
+			sourceTree = "<group>";
+		};
+		FE24A40B28008E92009EDC58 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FE24A40C28008ECF009EDC58 /* TopBarItem.swift */,
+				FE24A40F28008EEA009EDC58 /* BottomBarItem.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		FE67223727FEBFDF00558B79 = {
@@ -105,6 +129,10 @@
 				FE67226427FEBFF200558B79 /* Test1.swift */,
 				FE67226327FEBFF200558B79 /* Test2.swift */,
 				FE67226627FEBFF200558B79 /* Test3.swift */,
+				FE24A411280092EC009EDC58 /* ButtonVC1.swift */,
+				FE24A413280092F3009EDC58 /* ButtonVC2.swift */,
+				FE24A415280092F9009EDC58 /* ButtonVC3.swift */,
+				FE24A417280092FD009EDC58 /* ButtonVC4.swift */,
 				FE67225827FEBFF200558B79 /* TopBarViewController */,
 				FE67224C27FEBFE000558B79 /* Assets.xcassets */,
 				FE67224E27FEBFE000558B79 /* LaunchScreen.storyboard */,
@@ -119,6 +147,7 @@
 				FE67226227FEBFF200558B79 /* TopBarMainViewController.swift */,
 				FE019C8B27FED9330069C871 /* TopBarMainViewModel.swift */,
 				FE67225927FEBFF200558B79 /* SubComponents */,
+				FE24A40B28008E92009EDC58 /* Entities */,
 			);
 			path = TopBarViewController;
 			sourceTree = "<group>";
@@ -251,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE24A40A280084C8009EDC58 /* BottomBarViewModel.swift in Sources */,
 				FE67226927FEBFF200558B79 /* TopBarLayoutView.swift in Sources */,
 				FE67224827FEBFDF00558B79 /* RootViewController.swift in Sources */,
 				FE019C8C27FED9330069C871 /* TopBarMainViewModel.swift in Sources */,
@@ -262,11 +292,17 @@
 				FE67224627FEBFDF00558B79 /* SceneDelegate.swift in Sources */,
 				FE67226727FEBFF200558B79 /* TopBar.swift in Sources */,
 				FE67226D27FEBFF200558B79 /* Test1.swift in Sources */,
+				FE24A412280092EC009EDC58 /* ButtonVC1.swift in Sources */,
+				FE24A418280092FD009EDC58 /* ButtonVC4.swift in Sources */,
+				FE24A40D28008ECF009EDC58 /* TopBarItem.swift in Sources */,
 				FE67226F27FEBFF200558B79 /* Test3.swift in Sources */,
 				FE24A40628005EB4009EDC58 /* BottomBar.swift in Sources */,
+				FE24A41028008EEA009EDC58 /* BottomBarItem.swift in Sources */,
 				FE67226827FEBFF200558B79 /* TopBarCell.swift in Sources */,
 				FE019C8E27FED99A0069C871 /* TopBarLayoutViewModel.swift in Sources */,
 				FE67226B27FEBFF200558B79 /* TopBarMainViewController.swift in Sources */,
+				FE24A416280092F9009EDC58 /* ButtonVC3.swift in Sources */,
+				FE24A414280092F3009EDC58 /* ButtonVC2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

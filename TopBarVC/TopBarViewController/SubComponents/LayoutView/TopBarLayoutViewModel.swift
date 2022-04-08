@@ -9,6 +9,9 @@ import UIKit
 import RxCocoa
 
 struct TopBarLayoutViewModel {
+    let views: [UIView]
+    let startPage: Int
+    
     // View -> ViewModel
     let pageChanging = PublishRelay<Int>()
     
@@ -18,7 +21,10 @@ struct TopBarLayoutViewModel {
     // TabBarView -> ViewModel -> View
     let slotChanged = PublishRelay<IndexPath>()
     
-    init() {
+    init(views: [UIView], startPage: Int) {
+        self.views = views
+        self.startPage = startPage
+        
         scrolledPage = pageChanging
             .map { page in
                 return IndexPath(row: page, section: 0)

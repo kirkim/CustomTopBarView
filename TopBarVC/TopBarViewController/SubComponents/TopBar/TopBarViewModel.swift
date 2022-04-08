@@ -10,6 +10,9 @@ import RxCocoa
 import RxSwift
 
 struct TopBarViewModel {
+    let data: [String]
+    private let startPage: Int
+    
     private let disposeBag = DisposeBag()
     // TopBarLayoutView -> ViewModel
     let scrolledPage = PublishRelay<IndexPath>()
@@ -19,7 +22,10 @@ struct TopBarViewModel {
     //ViewModel -> View
     let slotChanging = PublishRelay<IndexPath>() // 구독시점이 항상 datasources 세팅완료시점보다 빨라서 cell변경용이라면 Behavior을 쓸필요가 없다고 생각
 
-    init() {
+    init(itemTitles: [String], startPage: Int) {
+        self.data = itemTitles
+        self.startPage = startPage
+        
         scrolledPage
             .bind(to: slotChanging)
             .disposed(by: disposeBag)
@@ -27,5 +33,9 @@ struct TopBarViewModel {
         slotChanged
             .bind(to: slotChanging)
             .disposed(by: disposeBag)
+    }
+    
+    func isStartPage(row: Int) -> Bool {
+        return self.startPage == row
     }
 }
