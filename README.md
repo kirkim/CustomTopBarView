@@ -1,14 +1,16 @@
 # TopBarView
 
-### Last updated on 2022.04.09
+## Last updated on 2022.04.09
 
 <img src="https://kirkim.github.io/assets/storage/customTopBar/customTopBarGif2.gif" width="30%" style="max-width:200px" alt="early version">
 
-### How to use
+---
+
+## How to use
 
 you just make `TopBarMainViewModel` & `TopBarMainViewController`.
 
-#### &lt; Sample use &gt;
+### &lt; Sample use &gt;
 
 make `TopBarMainViewModel` a storage variable.
 
@@ -38,5 +40,4 @@ startPage index starts at 0.
 ```swift
 let vc = TopBarMainViewController(startPage: 3)
 vc.bind(self.viewModel)
-}
 ```
