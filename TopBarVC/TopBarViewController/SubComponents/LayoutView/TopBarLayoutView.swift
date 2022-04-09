@@ -10,11 +10,13 @@ import RxCocoa
 
 class TopBarLayoutView: UICollectionView  {
     private let disposeBag = DisposeBag()
+    private let startPage: Int
     let nowPage = BehaviorSubject<Int>(value: 0)
     var nowPageFlag: Int = 0
     var initFlag: Bool = false
     
-    init() {
+    init(startPage: Int) {
+        self.startPage = startPage
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
@@ -29,7 +31,7 @@ class TopBarLayoutView: UICollectionView  {
             .drive(self.rx.items(cellIdentifier: "TopBarLayoutViewCell", cellType: TopBarLayoutViewCell.self)) { row, data, cell in
                 cell.setData(view: data)
                 if (self.initFlag == false) {
-                    self.scrollToItem(at: NSIndexPath(item: viewModel.startPage, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
+                    self.scrollToItem(at: NSIndexPath(item: self.startPage, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
                     self.initFlag = true
                 }
             }

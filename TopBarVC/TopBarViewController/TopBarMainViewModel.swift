@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 struct TopBarMainViewModel {
+    var startPage: Int = 0
     let topBarViewModel: TopBarViewModel
     let layoutViewModel: TopBarLayoutViewModel
     let bottomBarViewModel: BottomBarViewModel
@@ -22,13 +23,13 @@ struct TopBarMainViewModel {
     let presentVC: Signal<UIViewController>
     let dismissVC: Signal<Void>
     
-    init(topBarItems: [TopBarItem], bottomBarItem: BottomBarItem, startPage: Int = 0) {
+    init(topBarItems: [TopBarItem], bottomBarItem: BottomBarItem) {
         let titles = topBarItems.map { $0.itemTitle }
         let viewControllers = topBarItems.map { $0.viewController }
         
         self.subViewControllers = viewControllers
-        self.layoutViewModel = TopBarLayoutViewModel(views: viewControllers.map { $0.view }, startPage: startPage)
-        self.topBarViewModel = TopBarViewModel(itemTitles: titles, startPage: startPage)
+        self.layoutViewModel = TopBarLayoutViewModel(views: viewControllers.map { $0.view })
+        self.topBarViewModel = TopBarViewModel(itemTitles: titles)
         self.bottomBarViewModel = BottomBarViewModel(bottomBarItem: bottomBarItem)
         
         layoutViewModel.scrolledPage
@@ -39,7 +40,7 @@ struct TopBarMainViewModel {
             .bind(to: layoutViewModel.slotChanged)
             .disposed(by: disposeBag)
         
-        presentVC = bottomBarViewModel.presentVC.asSignal()
+        presentVC = bottomBarViewModel.presentVC
         dismissVC = bottomBarViewModel.dismissVC.asSignal()
     }
 }

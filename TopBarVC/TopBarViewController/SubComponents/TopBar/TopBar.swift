@@ -13,8 +13,10 @@ import RxDataSources
 class TopBar: UICollectionView {
     private let disposeBag = DisposeBag()
     private var cellData: [String]?
+    private let startPage: Int
     
-    init() {
+    init(startPage: Int) {
+        self.startPage = startPage
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
@@ -29,8 +31,10 @@ class TopBar: UICollectionView {
         Driver.just(viewModel.data)
             .drive(self.rx.items(cellIdentifier: "TopBarCell", cellType: TopBarCell.self)) { row, data, cell in
                 cell.setData(title: data)
-                if (viewModel.isStartPage(row: row)) {
-                    cell.backgroundColor = .yellow
+                cell.layer.cornerRadius = 15
+                if (row == self.startPage) {
+                    cell.backgroundColor = .systemMint
+                    cell.titleLabel.textColor = .white
                     self.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: true)
                 }
             }
@@ -45,8 +49,11 @@ class TopBar: UICollectionView {
             .bind { [weak self] indexPath in
                 self?.visibleCells.forEach { cell in
                     cell.backgroundColor = .clear
+                    (cell as? TopBarCell)?.titleLabel.textColor = .black
                 }
-                self?.cellForItem(at: indexPath)?.backgroundColor = .yellow
+                guard let cell = self?.cellForItem(at: indexPath) as? TopBarCell else { return }
+                self?.cellForItem(at: indexPath)?.backgroundColor = .systemMint
+                cell.titleLabel.textColor = .white
                 self?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             }
             .disposed(by: disposeBag)
@@ -72,7 +79,8 @@ class TopBar: UICollectionView {
 extension TopBar: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let slot = self.cellData?[indexPath.row] else { return CGSize.zero }
-        let length = slot.count * 10
-        return CGSize(width: length , height: Int(self.frame.height)-10)
+        print(slot.count)
+        let length = slot.count * 15 + 20
+        return CGSize(width: length , height: Int(self.frame.height)-20)
     }
 }

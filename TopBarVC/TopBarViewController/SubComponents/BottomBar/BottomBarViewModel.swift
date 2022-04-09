@@ -9,36 +9,20 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-enum ButtonType {
-    case one, two, three, four
-}
-
 struct BottomBarViewModel {
+    let bundleBaseButtonViewModel: BundleBaseButtonViewModel
     private let disposeBag = DisposeBag()
     // View -> ViewModel
     let buttonTapped = PublishRelay<ButtonType>()
     let centerButtonTapped = PublishRelay<Void>()
     
     // ViewModel -> View
-    let presentVC = PublishRelay<UIViewController>()
+    let presentVC: Signal<UIViewController>
     let dismissVC: Signal<Void>
     
     init(bottomBarItem: BottomBarItem) {
-        buttonTapped
-            .map { buttonType in
-                switch buttonType {
-                case .one:
-                    return bottomBarItem.presentVC1
-                case .two:
-                    return bottomBarItem.presentVC2
-                case .three:
-                    return bottomBarItem.presentVC3
-                case .four:
-                    return bottomBarItem.presentVC4
-                }
-            }
-            .bind(to: presentVC)
-            .disposed(by: disposeBag)
+        bundleBaseButtonViewModel = BundleBaseButtonViewModel(bottomBarItem: bottomBarItem)
+        presentVC = bundleBaseButtonViewModel.presentVC.asSignal()
         dismissVC = centerButtonTapped.asSignal()
     }
 }

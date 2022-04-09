@@ -10,16 +10,12 @@ import SnapKit
 import RxCocoa
 import RxSwift
 
-// 너비가 항상 앱화면너비와 같도록 만들어야 정상적으로 UI가 만들어진다
 class BottomBar: UIView {
     private let disposeBag = DisposeBag()
     
-    let button1 = UIButton()
-    let button2 = UIButton()
-    let button3 = UIButton()
-    let button4 = UIButton()
-    let centerButton = UIButton()
-    let CENTERBUTTONRATIO: CGFloat = 0.17 // 가운데 버튼의 비율만 정해주면됨 (윈도우 너비 기준)
+    private let bundleBaseButton = BundleBaseButton()
+    private let centerButton = UIButton()
+    let CENTERBUTTONRATIO: CGFloat = 0.15 // 가운데 버튼의 크기는 윈도우너비 기준으로 만들어지도록 만듬(오토레이아웃)
     let windowWidth = (UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate).windowWidth
     
     override init(frame: CGRect) {
@@ -33,25 +29,7 @@ class BottomBar: UIView {
     }
     
     func bind(_ viewModel: BottomBarViewModel) {
-        button1.rx.tap
-            .map { .one }
-            .bind(to: viewModel.buttonTapped)
-            .disposed(by: disposeBag)
-        button2.rx.tap
-            .map { .two }
-            .bind(to: viewModel.buttonTapped)
-            .disposed(by: disposeBag)
-        
-        button3.rx.tap
-            .map { .three }
-            .bind(to: viewModel.buttonTapped)
-            .disposed(by: disposeBag)
-        
-        button4.rx.tap
-            .map { .four }
-            .bind(to: viewModel.buttonTapped)
-            .disposed(by: disposeBag)
-        
+        bundleBaseButton.bind(viewModel.bundleBaseButtonViewModel)
         centerButton.rx.tap
             .bind(to: viewModel.centerButtonTapped)
             .disposed(by: disposeBag)
@@ -59,48 +37,37 @@ class BottomBar: UIView {
     
     //MARK: attribute(), layout() function
     private func attribute() {
-        self.backgroundColor = .white
-        self.button1.backgroundColor = .systemCyan
-        self.button2.backgroundColor = .yellow
-        self.button3.backgroundColor = .green
-        self.button4.backgroundColor = .systemBrown
+        self.backgroundColor = .black.withAlphaComponent(0.3) // 뷰를 그림자로써 사용
         self.centerButton.backgroundColor = .systemBlue
         self.centerButton.layer.cornerRadius = windowWidth! * CENTERBUTTONRATIO / 2
+        
+        // 뷰(그림자), 기본버튼번들뷰의 코너를 설정
+        bundleBaseButton.layer.cornerRadius = 20
+        self.layer.cornerRadius = 10
+        [bundleBaseButton, self].forEach {
+            $0.clipsToBounds = true
+            $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        }
     }
     
     private func layout() {
-        [button1, button2, button3, button4, centerButton].forEach {
+        [bundleBaseButton, centerButton].forEach {
             self.addSubview($0)
         }
-        let BUTTONRATIO: CGFloat = (1.0-CENTERBUTTONRATIO) / 4.0
         
-        button1.snp.makeConstraints {
-            $0.top.leading.bottom.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(BUTTONRATIO)
-        }
+        let shadowWidth = 10
         
-        button2.snp.makeConstraints {
-            $0.leading.equalTo(button1.snp.trailing)
-            $0.top.bottom.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(BUTTONRATIO)
+        bundleBaseButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(shadowWidth)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         
         centerButton.snp.makeConstraints {
-            $0.leading.equalTo(button2.snp.trailing)
+            $0.centerX.equalToSuperview()
             $0.width.equalToSuperview().multipliedBy(CENTERBUTTONRATIO)
             $0.height.equalTo(centerButton.snp.width)
-            $0.top.equalToSuperview().inset(-20)
+            $0.top.equalToSuperview()
         }
-        
-        button3.snp.makeConstraints {
-            $0.leading.equalTo(centerButton.snp.trailing)
-            $0.top.bottom.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(BUTTONRATIO)
-        }
-        
-        button4.snp.makeConstraints {
-            $0.leading.equalTo(button3.snp.trailing)
-            $0.top.bottom.trailing.equalToSuperview()
-        }
+
     }
 }

@@ -13,19 +13,20 @@ import RxSwift
 class RootViewController: UIViewController {
     private let viewModel = TopBarMainViewModel(
         topBarItems: [
-            TopBarItem(viewController: Test1(), itemTitle: "test11231231231"),
-            TopBarItem(viewController: Test2(), itemTitle: "test222"),
-            TopBarItem(viewController: Test3(), itemTitle: "tes"),
-            TopBarItem(viewController: Test1(), itemTitle: "test1"),
-            TopBarItem(viewController: Test2(), itemTitle: "test2"),
-            TopBarItem(viewController: Test3(), itemTitle: "test3")
+            TopBarItem(viewController: Test1(), itemTitle: "배민1"),
+            TopBarItem(viewController: Test2(), itemTitle: "배달"),
+            TopBarItem(viewController: Test3(), itemTitle: "포장"),
+            TopBarItem(viewController: Test1(), itemTitle: "B마트"),
+            TopBarItem(viewController: Test2(), itemTitle: "배민스토어"),
+            TopBarItem(viewController: Test3(), itemTitle: "쇼핑라이브"),
+            TopBarItem(viewController: Test1(), itemTitle: "선물하기"),
+            TopBarItem(viewController: Test2(), itemTitle: "전국별미"),
         ], bottomBarItem: BottomBarItem(
             presentVC1: ButtonVC1(),
             presentVC2: ButtonVC2(),
             presentVC3: ButtonVC3(),
             presentVC4: ButtonVC4()
-        ),
-        startPage: 3
+        )
     )
     private let disposeBag = DisposeBag()
     private let titleLabel = UILabel()
@@ -45,7 +46,7 @@ class RootViewController: UIViewController {
     private func bind() {
         openButton.rx.tap
             .bind {
-                let vc = TopBarMainViewController()
+                let vc = TopBarMainViewController(startPage: 4)
                 vc.bind(self.viewModel)
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true)

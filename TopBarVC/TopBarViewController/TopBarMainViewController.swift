@@ -12,15 +12,16 @@ import SnapKit
 
 class TopBarMainViewController: UIViewController {
     private let disposeBag = DisposeBag()
-    
-    private let layoutView = TopBarLayoutView()
-    private let topBar = TopBar()
+    private let layoutView: TopBarLayoutView
+    private let topBar: TopBar
     private var bottomBar = BottomBar()
     
-    override private init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        attribute()
+    init(startPage: Int = 0) {
+        self.layoutView = TopBarLayoutView(startPage: startPage)
+        self.topBar = TopBar(startPage: startPage)
+        super.init(nibName: nil, bundle: nil)
         layout()
+        attribute()
     }
     
     required init?(coder: NSCoder) {
@@ -53,7 +54,6 @@ class TopBarMainViewController: UIViewController {
     //MARK: attribute(), layout() function
     private func attribute() {
         self.view.backgroundColor = .systemMint
-        self.topBar.layer.cornerRadius = 10
     }
     
     private func layout() {
@@ -64,18 +64,18 @@ class TopBarMainViewController: UIViewController {
         topBar.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(40)
+            $0.height.equalTo(50)
         }
         
         layoutView.snp.makeConstraints {
-            $0.top.equalTo(topBar.snp.bottom).offset(10)
+            $0.top.equalTo(topBar.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
         self.view.addSubview(bottomBar)
         bottomBar.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(100)
+            $0.height.equalTo(80)
         }
     }
 }
