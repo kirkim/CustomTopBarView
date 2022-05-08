@@ -33,8 +33,7 @@ class TopBar: UICollectionView {
                 cell.setData(title: data)
                 cell.layer.cornerRadius = 15
                 if (row == self.startPage) {
-                    cell.backgroundColor = .systemMint
-                    cell.titleLabel.textColor = .white
+                    cell.isValid(true)
                     self.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: true)
                 }
             }
@@ -48,12 +47,10 @@ class TopBar: UICollectionView {
         viewModel.slotChanging
             .bind { [weak self] indexPath in
                 self?.visibleCells.forEach { cell in
-                    cell.backgroundColor = .clear
-                    (cell as? TopBarCell)?.titleLabel.textColor = .black
+                    (cell as? TopBarCell)?.isValid(false)
                 }
                 guard let cell = self?.cellForItem(at: indexPath) as? TopBarCell else { return }
-                self?.cellForItem(at: indexPath)?.backgroundColor = .systemMint
-                cell.titleLabel.textColor = .white
+                cell.isValid(true)
                 self?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             }
             .disposed(by: disposeBag)

@@ -21,6 +21,16 @@ class TopBarCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func isValid(_ isValid: Bool) {
+        if (isValid) {
+            self.backgroundColor = .systemMint
+            self.titleLabel.textColor = .white
+        } else {
+            self.backgroundColor = .clear
+            self.titleLabel.textColor = .black
+        }
+    }
+    
     private func attribute() {
         self.titleLabel.textAlignment = .center
         self.titleLabel.textColor = .black
