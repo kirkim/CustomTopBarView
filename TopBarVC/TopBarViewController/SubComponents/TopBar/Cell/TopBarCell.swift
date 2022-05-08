@@ -32,6 +32,7 @@ class TopBarCell: UICollectionViewCell {
     }
     
     private func attribute() {
+        self.layer.cornerRadius = self.frame.height/2
         self.titleLabel.textAlignment = .center
         self.titleLabel.textColor = .black
     }

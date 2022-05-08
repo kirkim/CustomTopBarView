@@ -31,7 +31,6 @@ class TopBar: UICollectionView {
         Driver.just(viewModel.data)
             .drive(self.rx.items(cellIdentifier: "TopBarCell", cellType: TopBarCell.self)) { row, data, cell in
                 cell.setData(title: data)
-                cell.layer.cornerRadius = 15
                 if (row == self.startPage) {
                     cell.isValid(true)
                     self.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: true)
