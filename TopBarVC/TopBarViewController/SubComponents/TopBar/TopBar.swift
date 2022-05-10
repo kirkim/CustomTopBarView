@@ -14,9 +14,12 @@ class TopBar: UICollectionView {
     private let disposeBag = DisposeBag()
     private var cellData: [String]?
     private let startPage: Int
+    private var flag: Bool = false
+    private var selectedPage: Int
     
     init(startPage: Int) {
         self.startPage = startPage
+        self.selectedPage = startPage
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         attribute()
         layout()
@@ -29,11 +32,14 @@ class TopBar: UICollectionView {
     func bind(_ viewModel: TopBarViewModel) {
         self.cellData = viewModel.data
         Driver.just(viewModel.data)
-            .drive(self.rx.items(cellIdentifier: "TopBarCell", cellType: TopBarCell.self)) { row, data, cell in
+            .drive(self.rx.items(cellIdentifier: "TopBarCell", cellType: TopBarCell.self)) { [weak self] row, data, cell in
                 cell.setData(title: data)
-                if (row == self.startPage) {
+                if (self?.flag == false) {
+                    self?.scrollToItem(at: IndexPath(row: (self?.startPage)!, section: 0), at: .centeredHorizontally, animated: true)
+                }
+                if ((row == self?.startPage && self?.flag == false) || (row == self?.selectedPage)) {
+                    self?.flag = true
                     cell.isValid(true)
-                    self.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: true)
                 }
             }
             .disposed(by: disposeBag)
@@ -51,6 +57,7 @@ class TopBar: UICollectionView {
                 guard let cell = self?.cellForItem(at: indexPath) as? TopBarCell else { return }
                 cell.isValid(true)
                 self?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                self?.selectedPage = indexPath.row
             }
             .disposed(by: disposeBag)
     }
@@ -75,8 +82,7 @@ class TopBar: UICollectionView {
 extension TopBar: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let slot = self.cellData?[indexPath.row] else { return CGSize.zero }
-        var length = slot.size(withAttributes: nil).width*1.5 + 20
-        length = length > 150 ? 150 : length
-        return CGSize(width: length , height: CGFloat(self.frame.height)-20)
+        let length = slot.count * 15 + 20
+        return CGSize(width: length , height: Int(self.frame.height)-20)
     }
 }

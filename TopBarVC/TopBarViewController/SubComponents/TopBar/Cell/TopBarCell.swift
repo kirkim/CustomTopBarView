@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class TopBarCell: UICollectionViewCell {
-    let titleLabel = BasePaddingLabel()
+    let titleLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +21,11 @@ class TopBarCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        self.titleLabel.textColor = .black
+        self.backgroundColor = .clear
+    }
+    
     func isValid(_ isValid: Bool) {
         if (isValid) {
             self.backgroundColor = .systemMint
@@ -30,11 +35,11 @@ class TopBarCell: UICollectionViewCell {
             self.titleLabel.textColor = .black
         }
     }
-    
+
     private func attribute() {
-        self.layer.cornerRadius = self.frame.height/2
         self.titleLabel.textAlignment = .center
         self.titleLabel.textColor = .black
+        self.layer.cornerRadius = 15
     }
     
     private func layout() {
@@ -50,26 +55,5 @@ class TopBarCell: UICollectionViewCell {
     
     func setData(title: String) {
         self.titleLabel.text = title
-    }
-}
-
-class BasePaddingLabel: UILabel {
-    private var padding = UIEdgeInsets(top: 0, left: 10.0, bottom: 0, right: 10.0)
-
-    convenience init(padding: UIEdgeInsets) {
-        self.init()
-        self.padding = padding
-    }
-
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: padding))
-    }
-
-    override var intrinsicContentSize: CGSize {
-        var contentSize = super.intrinsicContentSize
-        contentSize.height += padding.top + padding.bottom
-        contentSize.width += padding.left + padding.right
-
-        return contentSize
     }
 }
