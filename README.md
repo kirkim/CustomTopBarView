@@ -1,6 +1,6 @@
 # TopBarView
 
-## Last updated on 2022.04.09
+## Last updated on 2022.05.28
 
 <img src="https://kirkim.github.io/assets/storage/customTopBar/customTopBarGif2.gif" style="max-width:200px" alt="early version">
 
