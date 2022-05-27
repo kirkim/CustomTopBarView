@@ -17,16 +17,23 @@ class RootViewController: UIViewController {
             TopBarItem(viewController: Test2(), itemTitle: "배달"),
             TopBarItem(viewController: Test3(), itemTitle: "포장"),
             TopBarItem(viewController: Test1(), itemTitle: "B마트"),
+            TopBarItem(viewController: Test3(), itemTitle: "간편식/밀키트"),
             TopBarItem(viewController: Test2(), itemTitle: "배민스토어"),
             TopBarItem(viewController: Test3(), itemTitle: "쇼핑라이브"),
             TopBarItem(viewController: Test1(), itemTitle: "선물하기"),
             TopBarItem(viewController: Test2(), itemTitle: "전국별미"),
-        ], bottomBarItem: BottomBarItem(
-            presentVC1: ButtonVC1(),
-            presentVC2: ButtonVC2(),
-            presentVC3: ButtonVC3(),
-            presentVC4: ButtonVC4()
-        )
+        ],
+        bottomBarItem: BottomBarItems(
+            presentVC: BottomBarPresentVC(
+                button1: ButtonVC1(),
+                button2: ButtonVC2(),
+                button3: ButtonVC3(),
+                button4: ButtonVC4()),
+            datas: BottomBarDatas(
+                button1: BottomButtonData(image: UIImage(systemName: "person.circle")!, title: "내 정보", tintColor: .white, backgroundColor: .blue),
+                button2: BottomButtonData(image: UIImage(systemName: "heart")!, title: "찜"),
+                button3: BottomButtonData(title: ""),
+                button4: BottomButtonData(title: "")))
     )
     private let disposeBag = DisposeBag()
     private let titleLabel = UILabel()

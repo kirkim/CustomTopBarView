@@ -46,14 +46,18 @@ class TopBarMainViewController: UIViewController {
         
         viewModel.dismissVC
             .emit { [weak self] _ in
-                self?.dismiss(animated: true)
+                if (self?.navigationController != nil) {
+                    self?.navigationController?.popViewController(animated: true)
+                } else {
+                    self?.dismiss(animated: true)
+                }
             }
             .disposed(by: disposeBag)
     }
     
     //MARK: attribute(), layout() function
     private func attribute() {
-        self.view.backgroundColor = .systemMint
+        self.view.backgroundColor = .systemBrown
     }
     
     private func layout() {

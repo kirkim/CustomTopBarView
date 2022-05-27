@@ -7,19 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE00A5FE2801BB62004181A3 /* BundleBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00A5FD2801BB62004181A3 /* BundleBaseButton.swift */; };
-		FE00A6002801BBD8004181A3 /* BundleBaseButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00A5FF2801BBD8004181A3 /* BundleBaseButtonViewModel.swift */; };
 		FE019C8127FEC32E0069C871 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FE019C8027FEC32E0069C871 /* RxCocoa */; };
 		FE019C8327FEC32E0069C871 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = FE019C8227FEC32E0069C871 /* RxRelay */; };
 		FE019C8527FEC32E0069C871 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FE019C8427FEC32E0069C871 /* RxSwift */; };
 		FE019C8827FEC33C0069C871 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE019C8727FEC33C0069C871 /* SnapKit */; };
-		FE019C8A27FED0E30069C871 /* TopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8927FED0E30069C871 /* TopBarViewModel.swift */; };
-		FE019C8C27FED9330069C871 /* TopBarMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8B27FED9330069C871 /* TopBarMainViewModel.swift */; };
-		FE019C8E27FED99A0069C871 /* TopBarLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */; };
-		FE24A40628005EB4009EDC58 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40528005EB4009EDC58 /* BottomBar.swift */; };
-		FE24A40A280084C8009EDC58 /* BottomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A409280084C8009EDC58 /* BottomBarViewModel.swift */; };
-		FE24A40D28008ECF009EDC58 /* TopBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40C28008ECF009EDC58 /* TopBarItem.swift */; };
-		FE24A41028008EEA009EDC58 /* BottomBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A40F28008EEA009EDC58 /* BottomBarItem.swift */; };
 		FE24A412280092EC009EDC58 /* ButtonVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A411280092EC009EDC58 /* ButtonVC1.swift */; };
 		FE24A414280092F3009EDC58 /* ButtonVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A413280092F3009EDC58 /* ButtonVC2.swift */; };
 		FE24A416280092F9009EDC58 /* ButtonVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE24A415280092F9009EDC58 /* ButtonVC3.swift */; };
@@ -29,27 +20,29 @@
 		FE67224827FEBFDF00558B79 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67224727FEBFDF00558B79 /* RootViewController.swift */; };
 		FE67224D27FEBFE000558B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE67224C27FEBFE000558B79 /* Assets.xcassets */; };
 		FE67225027FEBFE000558B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE67224E27FEBFE000558B79 /* LaunchScreen.storyboard */; };
-		FE67226727FEBFF200558B79 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67225B27FEBFF200558B79 /* TopBar.swift */; };
-		FE67226827FEBFF200558B79 /* TopBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67225D27FEBFF200558B79 /* TopBarCell.swift */; };
-		FE67226927FEBFF200558B79 /* TopBarLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67225F27FEBFF200558B79 /* TopBarLayoutView.swift */; };
-		FE67226A27FEBFF200558B79 /* TopBarLayoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226127FEBFF200558B79 /* TopBarLayoutViewCell.swift */; };
-		FE67226B27FEBFF200558B79 /* TopBarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226227FEBFF200558B79 /* TopBarMainViewController.swift */; };
 		FE67226C27FEBFF200558B79 /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226327FEBFF200558B79 /* Test2.swift */; };
 		FE67226D27FEBFF200558B79 /* Test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226427FEBFF200558B79 /* Test1.swift */; };
 		FE67226F27FEBFF200558B79 /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE67226627FEBFF200558B79 /* Test3.swift */; };
+		FE7DF52828412941003FCFFE /* TopBarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51028412941003FCFFE /* TopBarMainViewController.swift */; };
+		FE7DF52928412941003FCFFE /* TopBarMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51128412941003FCFFE /* TopBarMainViewModel.swift */; };
+		FE7DF52A28412941003FCFFE /* TopBarLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51428412941003FCFFE /* TopBarLayoutView.swift */; };
+		FE7DF52B28412941003FCFFE /* TopBarLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51528412941003FCFFE /* TopBarLayoutViewModel.swift */; };
+		FE7DF52C28412941003FCFFE /* TopBarLayoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51728412941003FCFFE /* TopBarLayoutViewCell.swift */; };
+		FE7DF52D28412941003FCFFE /* TopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51928412941003FCFFE /* TopBarViewModel.swift */; };
+		FE7DF52E28412941003FCFFE /* TopBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51B28412941003FCFFE /* TopBarCell.swift */; };
+		FE7DF52F28412941003FCFFE /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51C28412941003FCFFE /* TopBar.swift */; };
+		FE7DF53028412941003FCFFE /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51E28412941003FCFFE /* BottomBar.swift */; };
+		FE7DF53128412941003FCFFE /* BottomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF51F28412941003FCFFE /* BottomBarViewModel.swift */; };
+		FE7DF53228412941003FCFFE /* BundleBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF52128412941003FCFFE /* BundleBaseButton.swift */; };
+		FE7DF53328412941003FCFFE /* BundleBaseButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF52228412941003FCFFE /* BundleBaseButtonViewModel.swift */; };
+		FE7DF53428412941003FCFFE /* BottomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF52428412941003FCFFE /* BottomButtonView.swift */; };
+		FE7DF53528412941003FCFFE /* TopBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF52628412941003FCFFE /* TopBarItem.swift */; };
+		FE7DF53628412941003FCFFE /* BottomBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DF52728412941003FCFFE /* BottomBarItems.swift */; };
+		FE7DF5392841295C003FCFFE /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = FE7DF5382841295C003FCFFE /* RxGesture */; };
 		FE82B59E27FFC4BE00CA500E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = FE82B59D27FFC4BE00CA500E /* RxDataSources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FE00A5FD2801BB62004181A3 /* BundleBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleBaseButton.swift; sourceTree = "<group>"; };
-		FE00A5FF2801BBD8004181A3 /* BundleBaseButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleBaseButtonViewModel.swift; sourceTree = "<group>"; };
-		FE019C8927FED0E30069C871 /* TopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarViewModel.swift; sourceTree = "<group>"; };
-		FE019C8B27FED9330069C871 /* TopBarMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarMainViewModel.swift; sourceTree = "<group>"; };
-		FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarLayoutViewModel.swift; sourceTree = "<group>"; };
-		FE24A40528005EB4009EDC58 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
-		FE24A409280084C8009EDC58 /* BottomBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewModel.swift; sourceTree = "<group>"; };
-		FE24A40C28008ECF009EDC58 /* TopBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarItem.swift; sourceTree = "<group>"; };
-		FE24A40F28008EEA009EDC58 /* BottomBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarItem.swift; sourceTree = "<group>"; };
 		FE24A411280092EC009EDC58 /* ButtonVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC1.swift; sourceTree = "<group>"; };
 		FE24A413280092F3009EDC58 /* ButtonVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC2.swift; sourceTree = "<group>"; };
 		FE24A415280092F9009EDC58 /* ButtonVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC3.swift; sourceTree = "<group>"; };
@@ -61,14 +54,24 @@
 		FE67224C27FEBFE000558B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE67224F27FEBFE000558B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE67225127FEBFE000558B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE67225B27FEBFF200558B79 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
-		FE67225D27FEBFF200558B79 /* TopBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarCell.swift; sourceTree = "<group>"; };
-		FE67225F27FEBFF200558B79 /* TopBarLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarLayoutView.swift; sourceTree = "<group>"; };
-		FE67226127FEBFF200558B79 /* TopBarLayoutViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarLayoutViewCell.swift; sourceTree = "<group>"; };
-		FE67226227FEBFF200558B79 /* TopBarMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarMainViewController.swift; sourceTree = "<group>"; };
 		FE67226327FEBFF200558B79 /* Test2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
 		FE67226427FEBFF200558B79 /* Test1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
 		FE67226627FEBFF200558B79 /* Test3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
+		FE7DF51028412941003FCFFE /* TopBarMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarMainViewController.swift; sourceTree = "<group>"; };
+		FE7DF51128412941003FCFFE /* TopBarMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarMainViewModel.swift; sourceTree = "<group>"; };
+		FE7DF51428412941003FCFFE /* TopBarLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarLayoutView.swift; sourceTree = "<group>"; };
+		FE7DF51528412941003FCFFE /* TopBarLayoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarLayoutViewModel.swift; sourceTree = "<group>"; };
+		FE7DF51728412941003FCFFE /* TopBarLayoutViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarLayoutViewCell.swift; sourceTree = "<group>"; };
+		FE7DF51928412941003FCFFE /* TopBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarViewModel.swift; sourceTree = "<group>"; };
+		FE7DF51B28412941003FCFFE /* TopBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarCell.swift; sourceTree = "<group>"; };
+		FE7DF51C28412941003FCFFE /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		FE7DF51E28412941003FCFFE /* BottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		FE7DF51F28412941003FCFFE /* BottomBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarViewModel.swift; sourceTree = "<group>"; };
+		FE7DF52128412941003FCFFE /* BundleBaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleBaseButton.swift; sourceTree = "<group>"; };
+		FE7DF52228412941003FCFFE /* BundleBaseButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleBaseButtonViewModel.swift; sourceTree = "<group>"; };
+		FE7DF52428412941003FCFFE /* BottomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomButtonView.swift; sourceTree = "<group>"; };
+		FE7DF52628412941003FCFFE /* TopBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarItem.swift; sourceTree = "<group>"; };
+		FE7DF52728412941003FCFFE /* BottomBarItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 				FE019C8827FEC33C0069C871 /* SnapKit in Frameworks */,
 				FE019C8327FEC32E0069C871 /* RxRelay in Frameworks */,
 				FE82B59E27FFC4BE00CA500E /* RxDataSources in Frameworks */,
+				FE7DF5392841295C003FCFFE /* RxGesture in Frameworks */,
 				FE019C8127FEC32E0069C871 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,34 +91,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FE00A5FC2801BB4E004181A3 /* SubComponents */ = {
-			isa = PBXGroup;
-			children = (
-				FE00A5FD2801BB62004181A3 /* BundleBaseButton.swift */,
-				FE00A5FF2801BBD8004181A3 /* BundleBaseButtonViewModel.swift */,
-			);
-			path = SubComponents;
-			sourceTree = "<group>";
-		};
-		FE24A40428004250009EDC58 /* BottomBar */ = {
-			isa = PBXGroup;
-			children = (
-				FE24A40528005EB4009EDC58 /* BottomBar.swift */,
-				FE24A409280084C8009EDC58 /* BottomBarViewModel.swift */,
-				FE00A5FC2801BB4E004181A3 /* SubComponents */,
-			);
-			path = BottomBar;
-			sourceTree = "<group>";
-		};
-		FE24A40B28008E92009EDC58 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				FE24A40C28008ECF009EDC58 /* TopBarItem.swift */,
-				FE24A40F28008EEA009EDC58 /* BottomBarItem.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		FE67223727FEBFDF00558B79 = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +120,7 @@
 				FE24A413280092F3009EDC58 /* ButtonVC2.swift */,
 				FE24A415280092F9009EDC58 /* ButtonVC3.swift */,
 				FE24A417280092FD009EDC58 /* ButtonVC4.swift */,
-				FE67225827FEBFF200558B79 /* TopBarViewController */,
+				FE7DF50F28412941003FCFFE /* TopBarViewController */,
 				FE67224C27FEBFE000558B79 /* Assets.xcassets */,
 				FE67224E27FEBFE000558B79 /* LaunchScreen.storyboard */,
 				FE67225127FEBFE000558B79 /* Info.plist */,
@@ -152,61 +128,98 @@
 			path = TopBarVC;
 			sourceTree = "<group>";
 		};
-		FE67225827FEBFF200558B79 /* TopBarViewController */ = {
+		FE7DF50F28412941003FCFFE /* TopBarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FE67226227FEBFF200558B79 /* TopBarMainViewController.swift */,
-				FE019C8B27FED9330069C871 /* TopBarMainViewModel.swift */,
-				FE67225927FEBFF200558B79 /* SubComponents */,
-				FE24A40B28008E92009EDC58 /* Entities */,
+				FE7DF51028412941003FCFFE /* TopBarMainViewController.swift */,
+				FE7DF51128412941003FCFFE /* TopBarMainViewModel.swift */,
+				FE7DF51228412941003FCFFE /* SubComponents */,
+				FE7DF52528412941003FCFFE /* Entities */,
 			);
 			path = TopBarViewController;
 			sourceTree = "<group>";
 		};
-		FE67225927FEBFF200558B79 /* SubComponents */ = {
+		FE7DF51228412941003FCFFE /* SubComponents */ = {
 			isa = PBXGroup;
 			children = (
-				FE67225A27FEBFF200558B79 /* TopBar */,
-				FE67225E27FEBFF200558B79 /* LayoutView */,
-				FE24A40428004250009EDC58 /* BottomBar */,
+				FE7DF51328412941003FCFFE /* LayoutView */,
+				FE7DF51828412941003FCFFE /* TopBar */,
+				FE7DF51D28412941003FCFFE /* BottomBar */,
 			);
 			path = SubComponents;
 			sourceTree = "<group>";
 		};
-		FE67225A27FEBFF200558B79 /* TopBar */ = {
+		FE7DF51328412941003FCFFE /* LayoutView */ = {
 			isa = PBXGroup;
 			children = (
-				FE67225B27FEBFF200558B79 /* TopBar.swift */,
-				FE019C8927FED0E30069C871 /* TopBarViewModel.swift */,
-				FE67225C27FEBFF200558B79 /* Cell */,
-			);
-			path = TopBar;
-			sourceTree = "<group>";
-		};
-		FE67225C27FEBFF200558B79 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				FE67225D27FEBFF200558B79 /* TopBarCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		FE67225E27FEBFF200558B79 /* LayoutView */ = {
-			isa = PBXGroup;
-			children = (
-				FE67225F27FEBFF200558B79 /* TopBarLayoutView.swift */,
-				FE019C8D27FED99A0069C871 /* TopBarLayoutViewModel.swift */,
-				FE67226027FEBFF200558B79 /* Cell */,
+				FE7DF51428412941003FCFFE /* TopBarLayoutView.swift */,
+				FE7DF51528412941003FCFFE /* TopBarLayoutViewModel.swift */,
+				FE7DF51628412941003FCFFE /* Cell */,
 			);
 			path = LayoutView;
 			sourceTree = "<group>";
 		};
-		FE67226027FEBFF200558B79 /* Cell */ = {
+		FE7DF51628412941003FCFFE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FE67226127FEBFF200558B79 /* TopBarLayoutViewCell.swift */,
+				FE7DF51728412941003FCFFE /* TopBarLayoutViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE7DF51828412941003FCFFE /* TopBar */ = {
+			isa = PBXGroup;
+			children = (
+				FE7DF51928412941003FCFFE /* TopBarViewModel.swift */,
+				FE7DF51A28412941003FCFFE /* Cell */,
+				FE7DF51C28412941003FCFFE /* TopBar.swift */,
+			);
+			path = TopBar;
+			sourceTree = "<group>";
+		};
+		FE7DF51A28412941003FCFFE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE7DF51B28412941003FCFFE /* TopBarCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE7DF51D28412941003FCFFE /* BottomBar */ = {
+			isa = PBXGroup;
+			children = (
+				FE7DF51E28412941003FCFFE /* BottomBar.swift */,
+				FE7DF51F28412941003FCFFE /* BottomBarViewModel.swift */,
+				FE7DF52028412941003FCFFE /* SubComponents */,
+			);
+			path = BottomBar;
+			sourceTree = "<group>";
+		};
+		FE7DF52028412941003FCFFE /* SubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FE7DF52128412941003FCFFE /* BundleBaseButton.swift */,
+				FE7DF52228412941003FCFFE /* BundleBaseButtonViewModel.swift */,
+				FE7DF52328412941003FCFFE /* SubComponents */,
+			);
+			path = SubComponents;
+			sourceTree = "<group>";
+		};
+		FE7DF52328412941003FCFFE /* SubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FE7DF52428412941003FCFFE /* BottomButtonView.swift */,
+			);
+			path = SubComponents;
+			sourceTree = "<group>";
+		};
+		FE7DF52528412941003FCFFE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FE7DF52628412941003FCFFE /* TopBarItem.swift */,
+				FE7DF52728412941003FCFFE /* BottomBarItems.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +244,7 @@
 				FE019C8427FEC32E0069C871 /* RxSwift */,
 				FE019C8727FEC33C0069C871 /* SnapKit */,
 				FE82B59D27FFC4BE00CA500E /* RxDataSources */,
+				FE7DF5382841295C003FCFFE /* RxGesture */,
 			);
 			productName = TopBarVC;
 			productReference = FE67224027FEBFDF00558B79 /* TopBarVC.app */;
@@ -264,6 +278,7 @@
 				FE019C7F27FEC32E0069C871 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				FE019C8627FEC33C0069C871 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FE82B59C27FFC4BE00CA500E /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				FE7DF5372841295C003FCFFE /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = FE67224127FEBFDF00558B79 /* Products */;
 			projectDirPath = "";
@@ -291,30 +306,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE24A40A280084C8009EDC58 /* BottomBarViewModel.swift in Sources */,
-				FE67226927FEBFF200558B79 /* TopBarLayoutView.swift in Sources */,
 				FE67224827FEBFDF00558B79 /* RootViewController.swift in Sources */,
-				FE019C8C27FED9330069C871 /* TopBarMainViewModel.swift in Sources */,
+				FE7DF52F28412941003FCFFE /* TopBar.swift in Sources */,
+				FE7DF52928412941003FCFFE /* TopBarMainViewModel.swift in Sources */,
+				FE7DF52A28412941003FCFFE /* TopBarLayoutView.swift in Sources */,
+				FE7DF52828412941003FCFFE /* TopBarMainViewController.swift in Sources */,
+				FE7DF52D28412941003FCFFE /* TopBarViewModel.swift in Sources */,
 				FE67224427FEBFDF00558B79 /* AppDelegate.swift in Sources */,
 				FE67226C27FEBFF200558B79 /* Test2.swift in Sources */,
-				FE019C8A27FED0E30069C871 /* TopBarViewModel.swift in Sources */,
-				FE67226A27FEBFF200558B79 /* TopBarLayoutViewCell.swift in Sources */,
+				FE7DF53628412941003FCFFE /* BottomBarItems.swift in Sources */,
 				FE67224627FEBFDF00558B79 /* SceneDelegate.swift in Sources */,
-				FE00A5FE2801BB62004181A3 /* BundleBaseButton.swift in Sources */,
-				FE67226727FEBFF200558B79 /* TopBar.swift in Sources */,
+				FE7DF53328412941003FCFFE /* BundleBaseButtonViewModel.swift in Sources */,
 				FE67226D27FEBFF200558B79 /* Test1.swift in Sources */,
+				FE7DF53228412941003FCFFE /* BundleBaseButton.swift in Sources */,
+				FE7DF52C28412941003FCFFE /* TopBarLayoutViewCell.swift in Sources */,
+				FE7DF52E28412941003FCFFE /* TopBarCell.swift in Sources */,
+				FE7DF53028412941003FCFFE /* BottomBar.swift in Sources */,
+				FE7DF53128412941003FCFFE /* BottomBarViewModel.swift in Sources */,
 				FE24A412280092EC009EDC58 /* ButtonVC1.swift in Sources */,
 				FE24A418280092FD009EDC58 /* ButtonVC4.swift in Sources */,
-				FE24A40D28008ECF009EDC58 /* TopBarItem.swift in Sources */,
-				FE00A6002801BBD8004181A3 /* BundleBaseButtonViewModel.swift in Sources */,
+				FE7DF53528412941003FCFFE /* TopBarItem.swift in Sources */,
 				FE67226F27FEBFF200558B79 /* Test3.swift in Sources */,
-				FE24A40628005EB4009EDC58 /* BottomBar.swift in Sources */,
-				FE24A41028008EEA009EDC58 /* BottomBarItem.swift in Sources */,
-				FE67226827FEBFF200558B79 /* TopBarCell.swift in Sources */,
-				FE019C8E27FED99A0069C871 /* TopBarLayoutViewModel.swift in Sources */,
-				FE67226B27FEBFF200558B79 /* TopBarMainViewController.swift in Sources */,
 				FE24A416280092F9009EDC58 /* ButtonVC3.swift in Sources */,
+				FE7DF52B28412941003FCFFE /* TopBarLayoutViewModel.swift in Sources */,
 				FE24A414280092F3009EDC58 /* ButtonVC2.swift in Sources */,
+				FE7DF53428412941003FCFFE /* BottomButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +558,14 @@
 				kind = branch;
 			};
 		};
+		FE7DF5372841295C003FCFFE /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		FE82B59C27FFC4BE00CA500E /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
@@ -572,6 +596,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE019C8627FEC33C0069C871 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FE7DF5382841295C003FCFFE /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE7DF5372841295C003FCFFE /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 		FE82B59D27FFC4BE00CA500E /* RxDataSources */ = {
 			isa = XCSwiftPackageProductDependency;

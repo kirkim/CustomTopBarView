@@ -28,20 +28,20 @@ class TopBarCell: UICollectionViewCell {
     
     func isValid(_ isValid: Bool) {
         if (isValid) {
-            self.backgroundColor = .systemMint
+            self.backgroundColor = .systemBrown
             self.titleLabel.textColor = .white
         } else {
             self.backgroundColor = .clear
             self.titleLabel.textColor = .black
         }
     }
-
+    
     private func attribute() {
         self.titleLabel.textAlignment = .center
         self.titleLabel.textColor = .black
         self.layer.cornerRadius = 15
     }
-    
+
     private func layout() {
         [titleLabel].forEach {
             self.addSubview($0)
@@ -50,7 +50,6 @@ class TopBarCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
     }
     
     func setData(title: String) {
